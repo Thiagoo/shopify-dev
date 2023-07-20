@@ -29,3 +29,11 @@ npm run dev
 ```bash
 npm install @mui/material @emotion/react @emotion/styled
 ```
+
+##### how to run the thiago project
+
+##### the package json already contain the dependencies its necesdsary to run:
+
+```bash
+npm install
+```
