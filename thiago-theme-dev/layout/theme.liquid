@@ -24,11 +24,11 @@
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {{ 'MatterTRIAL-Regular.woff2'
-  | asset_url
-  | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-  {{ 'Amiri-Regular.woff2'
-  | asset_url
-  | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    | asset_url
+    | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'Amiri-Regular.woff2'
+    | asset_url
+    | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
