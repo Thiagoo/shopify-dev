@@ -57,6 +57,11 @@
       </span>
     </span>
   </button>
+  {% if product.metafields.custom.order_text_new != blank %}
+  <div class="after-cart-text">
+    {{ product.metafields.custom.order_text_new }}
+  </div>
+{% endif %}
 </add-to-cart-component>
 
 {% stylesheet %}

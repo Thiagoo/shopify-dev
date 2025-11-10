@@ -61,8 +61,24 @@
             ref="fieldsets[]"
             {{ option_id_attribute }}
           >
-            <legend>
-              {{ product_option.name | escape -}}
+          {% comment %}****************** Adding custom texting ***************{% endcomment %}
+            <legend class="variant-legend">
+              <span class="variant-legend-label">
+                {{ product_option.name | escape }}
+              </span>
+
+              {%- if product_option.name == 'Metal' and product.metafields.custom.text_product -%}
+                <span class="metal-subtitle">
+                  {{ product.metafields.custom.text_product }}
+                </span>
+              {%- endif %}
+
+                {%- if product_option.name == 'Finish' -%}
+                  <span class="finish-subtitle">
+                    {{ product.metafields.custom.text_from_small_ring_images }}
+                  </span>
+                {%- endif %}
+
               {%- if variant_style == 'swatch' -%}
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
@@ -119,6 +135,7 @@
                   {% if product_option_value.available == true %}
                     <span class="variant-option__button-label__pill"></span>
                   {% endif %}
+                  
                   <span class="variant-option__button-label__text">{{ product_option_value | escape }}</span>
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}

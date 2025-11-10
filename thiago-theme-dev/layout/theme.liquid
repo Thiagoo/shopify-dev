@@ -1,34 +1,44 @@
 <!doctype html>
-<html
-  class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}"
-  lang="{{ request.locale.iso_code }}"
->
+<html class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}" lang="{{ request.locale.iso_code }}">
   <head>
     {%- if settings.favicon != blank -%}
-      <link
-        rel="icon"
-        type="image/png"
-        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
-      >
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
-    <link
-      rel="expect"
-      href="#MainContent"
-      blocking="render"
-      id="view-transition-render-blocker"
-    >
+    <link rel="expect" href="#MainContent" blocking="render" id="view-transition-render-blocker">
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
-    {{ 'MatterTRIAL-Regular.woff2'
-    | asset_url
-    | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-    {{ 'Amiri-Regular.woff2'
-    | asset_url
-    | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+
+    {{ 'MatterTRIAL-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'Amiri-Regular.woff2'        | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+
+    <style>
+      @font-face {
+        font-family: "Matter";
+        src: url("{{ 'MatterTRIAL-Regular.woff2' | asset_url }}") format("woff2");
+        font-weight: 400; font-style: normal; font-display: swap;
+      }
+      @font-face {
+        font-family: "Amiri";
+        src: url("{{ 'Amiri-Regular.woff2' | asset_url }}") format("woff2");
+        font-weight: 400; font-style: normal; font-display: swap;
+      }
+    </style>
+
+    {%- comment -%} Robust PDP flag (Liquid has no parentheses in conditions) {%- endcomment -%}
+    {%- assign is_pdp_custom = false -%}
+    {%- if template.name == 'product' and template.suffix == 'customisation' -%}
+      {%- assign is_pdp_custom = true -%}
+    {%- elsif template.name == 'product' and template.suffix == 'customization' -%}
+      {%- assign is_pdp_custom = true -%}
+    {%- elsif template == 'product.customisation' -%}
+      {%- assign is_pdp_custom = true -%}
+    {%- elsif template == 'product.customization' -%}
+      {%- assign is_pdp_custom = true -%}
+    {%- endif -%}
+
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
@@ -42,16 +52,12 @@
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+
     <div id="header-group">
       {% sections 'header-group' %}
     </div>
 
-    <script
-      src="{{ 'critical.js' | asset_url }}"
-      type="module"
-      async
-      blocking="render"
-    ></script>
+    <script src="{{ 'critical.js' | asset_url }}" type="module" async blocking="render"></script>
 
     <main
       id="MainContent"
@@ -65,9 +71,7 @@
     </main>
 
     {% sections 'footer-group' %}
-
     {% render 'search-modal' %}
-
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
