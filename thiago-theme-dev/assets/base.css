@@ -4356,7 +4356,7 @@ main[data-template*="product"] {
     height: 40px !important;
     background: #1D0F0736 !important;
     border-radius: 40px !important;
-    display: flex !important;
+    display: flex;
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .08) !important;
@@ -4711,8 +4711,9 @@ main[data-template*="product"] {
 
   /* arrows */
   .slideshow-arrows,
-  .slideshow-control,
-  .slideshow-control::after {
+  button.slideshow-control,
+  button.slideshow-control.button-unstyled,
+  button.slideshow-control.button-unstyled--transparent .slideshow-control::after {
     display: none !important;
   }
 
