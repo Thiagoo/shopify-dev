@@ -4730,6 +4730,11 @@ main[data-template*="product"] {
 
   /* *****Section Cuff collection ************/
   /*******************************************/
+
+  [id^="shopify-section-template"][id$="__section_ijTPFB"] .divider {
+    width: 100% !important;
+  }
+
   main[data-template*="product"] [id^="shopify-section-template"][id$="__section_ijTPFB"] h6 {
     text-align: left;
     ;
@@ -4772,10 +4777,6 @@ main[data-template*="product"] {
   [id^="shopify-section-template"][id$="__section_XGfF46"].mobile-column,
   [id^="shopify-section-template"][id$="__section_XGfF46"] .layout-panel-flex {
     display: contents;
-  }
-
-  [id^="shopify-section-template"][id$="__section_XGfF46"] .group-block__media-wrapper {
-    display: block;
   }
 
   /************ Section personal*******************/
