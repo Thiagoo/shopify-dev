@@ -4444,6 +4444,10 @@ main[data-template*="product"] {
     color: #000000;
   }
 
+  .product-details .divider {
+    display: none;
+  }
+
   .product-details h1 {
     font-weight: 400;
     font-size: 24px;
@@ -4530,6 +4534,12 @@ main[data-template*="product"] {
 
   /************ Section explore cuff collection*******************/
   /*******************************************/
+  [id^="shopify-section-template"][id$="__section_ijTPFB"] .divider {
+    width: 500px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
   [id^="shopify-section-template"][id$="__section_ijTPFB"] .text-block h6 {
     font-weight: 430 !important;
     font-size: 12px !important;
@@ -4758,11 +4768,6 @@ main[data-template*="product"] {
     text-align: center;
   }
 
-  [id^="shopify-section-template"][id$="__section_XGfF46"] .group-block:has(.product-card) {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   /* neutralizes flex utilities inherited from the theme in this block */
   [id^="shopify-section-template"][id$="__section_XGfF46"].mobile-column,
   [id^="shopify-section-template"][id$="__section_XGfF46"] .layout-panel-flex {
@@ -4770,7 +4775,7 @@ main[data-template*="product"] {
   }
 
   [id^="shopify-section-template"][id$="__section_XGfF46"] .group-block__media-wrapper {
-    display: none;
+    display: block;
   }
 
   /************ Section personal*******************/

@@ -273,6 +273,18 @@
     "section_ijTPFB": {
       "type": "section",
       "blocks": {
+        "divider_j6xdYd": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
         "heading_bq4z": {
           "type": "text",
           "name": "Heading",
@@ -523,6 +535,7 @@
         }
       },
       "block_order": [
+        "divider_j6xdYd",
         "heading_bq4z",
         "group_cuffrow"
       ],
