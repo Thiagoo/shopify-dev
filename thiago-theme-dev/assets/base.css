@@ -4334,6 +4334,15 @@ main[data-template*="product"] {
     font-weight: var(--font-paragraph--weight);
   }
 
+  /************ Header*******************/
+  /*******************************************/
+
+  [id^="shopify-section-sections"][id$="_header_section"] .menu-list__list-item,
+  [id^="shopify-section-sections"][id$="_header_section"] .menu-list__list-item>a,
+  [id^="shopify-section-sections"][id$="_header_section"] .menu-list__list-item>button {
+    font-family: Matter;
+  }
+
   /************ Custom Arrows*******************/
   /*******************************************/
   slideshow-arrows {
@@ -4446,6 +4455,14 @@ main[data-template*="product"] {
 
   .product-details .divider {
     display: none;
+  }
+
+  [id^="shopify-section-template"][id$="__main"] rte-formatter p {
+    font-weight: 430;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 20%;
+    text-transform: uppercase;
   }
 
   .product-details h1 {

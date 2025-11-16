@@ -7,10 +7,28 @@
 <header-actions
   {{- block.shopify_attributes -}}
 >
+  
   {% if shop.customer_accounts_enabled %}
     {% render 'account-popover' %}
     {% render 'account-drawer' %}
   {% endif %}
+
+  <!-- Wishlist Icon -->
+<a 
+  href="/pages/wishlist" 
+  class="header-actions__action action__wishlist" 
+  aria-label="Wishlist"
+>
+  <div class="svg-wrapper">
+<img
+  src="{{ 'icon-heart.svg' | asset_url }}"
+  alt="Wishlist"
+  width="20"
+  height="20"
+  style="width: 20px; height: 20px;"
+>
+  </div>
+</a>
 
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     {% render 'cart-drawer' %}
